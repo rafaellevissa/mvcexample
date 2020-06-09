@@ -1,5 +1,7 @@
 <?php
+
 require_once 'livroDb.php';
+
 class Livro extends LivroDB{
     private $nome;
     private $autor;
@@ -24,6 +26,8 @@ class Livro extends LivroDB{
     public function setPreco($preco){
         $this->preco = $preco;
     }
-
+    public function incluir(){
+        return $this->setLivro($this->getNome(), $this->getAutor(), $this->getPreco());
+    }
 
 }
