@@ -7,9 +7,11 @@ class ControllerEditar{
     private $autor;
     private $preco;
     private $livroDb;
+    private $id;
 
     public function __construct($id){
         $this->livroDb = new LivroDB();
+        $this->id = $id;
         $this->criarFormulario($id);
     }
 
@@ -22,6 +24,9 @@ class ControllerEditar{
 
     public function getNome(){
         return $this->nome;
+    }
+    public function getId(){
+        return $this->id;
     }
     public function getAutor(){
         return $this->autor;
