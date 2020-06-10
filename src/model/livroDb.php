@@ -12,9 +12,8 @@ class LivroDB{
     private function conexao(){
         $this->mysqli = new mysqli(DB_SERVIDOR, DB_USUARIO, DB_SENHA, DB_BANCO);
     }
-
     public function setLivro($nome, $autor, $preco){
-        $sql = $this->mysqli->prepare("INSERT INTO livros (nome, autor, preco) VALUES (?,?,?)");
+        $sql = $this->mysqli->prepare("INSERT INTO livros (`nome`, `autor`, `preco`) VALUES (?,?,?)");
         $sql = bind_params("sss",$nome, $autor, $preco);
         if($sql->execute()){
             return true;
@@ -32,7 +31,7 @@ class LivroDB{
     }
 
     public function deleteLivro($id){
-        $sql = $this->mysqli->prepare("DELETE FROM livros WHERE id= ?");
+        $sql = $this->mysqli->prepare("DELETE FROM `livros` WHERE `id`= ?");
         $sql = bind_params("s", $id);
         if($sql->execute()){
             return true;
@@ -42,7 +41,7 @@ class LivroDB{
     }
 
     public function updateLivro($id, $nome, $autor, $preco){
-        $sql = $this->mysqli->prepare("UPDATE livros SET 'nome' = ?, 'autor' = ?, 'preco' = ? WHERE 'id' = ? ");
+        $sql = $this->mysqli->prepare("UPDATE `livros` SET `nome` = ?, `autor` = ?, `preco` = ? WHERE `id` = ? ");
         $sql = bind_params("ssss",$nome, $autor, $preco, $id);
         if($sql->execute()){
             return true;
@@ -52,7 +51,7 @@ class LivroDB{
     }
     
     public function getLivroById($id){
-        $sql = $this->mysqli->prepare("SELECT * FROM livros WHERE id = ?");
+        $sql = $this->mysqli->prepare("SELECT * FROM `livros` WHERE `id` = ?");
         $sql = bind_params("s",$id);        
         return $sql->fetch_array(MYSQLI_ASSOC);            
     }

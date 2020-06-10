@@ -1,6 +1,6 @@
 <?php
 
-require_once "../model/livro.php";
+require_once("../model/livro.php");
 
 class ControllerCadastrar{
     private $livro;
@@ -9,6 +9,7 @@ class ControllerCadastrar{
         $this->livro = new Livro();
         $this->cadastrar();
     }
+
 
     private function cadastrar(){
         $this->livro->setNome($_POST['nome']);
