@@ -1,7 +1,5 @@
 <?php
-
 require_once "../config/db.php";
-
 class LivroDB{
     protected $mysqli;
     
@@ -12,13 +10,10 @@ class LivroDB{
     private function conexao(){
         $this->mysqli = new mysqli(DB_SERVIDOR, DB_USUARIO, DB_SENHA, DB_BANCO);
     }
-    public function setLivro($nome, $autor, $preco){        
-        echo("INSERT INTO livros (`nome`, `autor`, `preco`) VALUES (?,?,?)");
-        
+    public function setLivro($nome, $autor, $preco){                
         $sql = $this->mysqli->prepare("INSERT INTO livros (`nome`, `autor`, `preco`) VALUES (?,?,?)");
         $sql->bind_param("sss",$nome, $autor, $preco);
         if($sql->execute()){
-            echo("Livro inserido");
             return true;
         }else{
             return false;

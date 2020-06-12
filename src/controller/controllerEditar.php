@@ -1,6 +1,6 @@
 <?php
 
-require_once '../model/livroDb.php';
+require_once ("../model/livroDb.php");
 
 class ControllerEditar{
     private $nome;

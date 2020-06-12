@@ -17,7 +17,7 @@ class ControllerListar{
             echo("<td>".$livro['nome']."</td>");
             echo("<td>".$livro['autor']."</td>");
             echo("<td>".$livro['preco']."</td>");
-            echo("<td><a class='btn btn-warning' href='editar.php?id=".$livro['id']."'>Editar</a> <a class='btn btn-danger' href='../controller/controllerEditar.php?id=".$livro['id']."'> Excluir </a> </td>");        
+            echo("<td><a class='btn btn-warning' href='editar.php?id=".$livro['id']."'>Editar</a> <a class='btn btn-danger' href='../controller/controllerExcluir.php?id=".$livro['id']."'> Excluir </a> </td>");        
             echo('</tr>');
         }
     }
