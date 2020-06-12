@@ -15,8 +15,9 @@ class ControllerCadastrar{
         $this->livro->setNome($_POST['nome']);
         $this->livro->setAutor($_POST['autor']);
         $this->livro->setPreco($_POST['preco']);
-
+        
         $resultado = $this->livro->incluir();
+        echo($resultado);
         if($resultado>=1){
             echo("<script>alert('Livro cadastrado com sucesso!');document.location='../view/cadastro.php'</script>");
         }else{
