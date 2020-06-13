@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 
 <html>
-    <?php include("head.php"); ?>
+    <?php include("head.php") ?>
     <body>
         <?php include("menu.php"); ?>
         <?php require_once("../controller/controllerEditar.php"); ?>

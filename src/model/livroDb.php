@@ -1,5 +1,5 @@
 <?php
-require_once "../config/db.php";
+require_once("../config/db.php");
 class LivroDB{
     protected $mysqli;
     
@@ -31,7 +31,7 @@ class LivroDB{
     public function deleteLivro($id){
         $sql = $this->mysqli->prepare("DELETE FROM `livros` WHERE `id`= ?");
         $sql->bind_param("s", $id);
-        if($sql->execute()){
+        if($sql->execute()==TRUE){
             return true;
         }else{
             return false;
@@ -41,7 +41,7 @@ class LivroDB{
     public function updateLivro($id, $nome, $autor, $preco){
         $sql = $this->mysqli->prepare("UPDATE `livros` SET `nome` = ?, `autor` = ?, `preco` = ? WHERE `id` = ? ");
         $sql->bind_param("ssss",$nome, $autor, $preco, $id);
-        if($sql->execute()){
+        if($sql->execute()==TRUE){
             return true;
         }else{
             return false;
@@ -49,9 +49,9 @@ class LivroDB{
     }
     
     public function getLivroById($id){
-        $sql = $this->mysqli->prepare("SELECT * FROM `livros` WHERE `id` = ?");
-        $sql->bind_param("s",$id);        
+        $sql = $this->mysqli->query("SELECT * FROM livros WHERE id = '$id'");
         return $sql->fetch_array(MYSQLI_ASSOC);            
+        
     }
 }
-?>
+

@@ -1,6 +1,6 @@
 <?php
 
-require_once ("../model/livroDb.php");
+require_once("../model/livroDb.php");
 
 class ControllerEditar{
     private $nome;
@@ -15,7 +15,7 @@ class ControllerEditar{
         $this->criarFormulario($id);
     }
 
-    public function criarFormulario($id){
+    public function criarFormulario($id){        
         $row = $this->livroDb->getLivroById($id);
         $this->nome = $row['nome'];
         $this->autor = $row['autor'];
