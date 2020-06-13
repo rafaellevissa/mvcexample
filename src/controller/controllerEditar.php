@@ -46,18 +46,18 @@ class ControllerEditar{
     }
 
     public function editarFormulario($nome, $autor, $preco, $id){
-        if($this->livroDb->updateLivro($id,$nome, $autor, $preco)){
-            echo("<script> alert('Livro Atualizado com sucesso!');document.location'../view/index.php' </script>");
+        
+        if($this->livroDb->updateLivro($id,$nome, $autor, $preco)==TRUE){
+            echo("<script>alert('Livro editado com sucesso!');document.location='../view/index.php'</script>");
         }else{
-            echo("<script> alert('Infelizmente o livro não foi atualizado!');history.back()' </script>");
+            echo("<script>alert('Infelizmente seu livro não foi editado!');history.back()</script>");
         }
     }
 }
 
 $id = filter_input(INPUT_GET, 'id');
 $editar = new ControllerEditar($id);
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){ 
     $editar->editarFormulario($_POST['nome'], $_POST['autor'], $_POST['preco'], $_POST['id']);
 }
-
 ?>
