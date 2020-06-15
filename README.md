@@ -1,6 +1,10 @@
 # mvcexample
 Exemplo de estrutura de sistemas Web (MVC)
 
+[![License][license]][license]
+[![GitHub Stars][github-stars]][github-stars]
+[![Code Size][code-size]][code-size]
+
 **Objetivo**
 
 Fazer um CRUD com php, utilizando arquitetura MVC (Model, View, Controller). Utilizaremos como exemplo um sistema de cadastro de livros.
